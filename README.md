@@ -51,28 +51,5 @@ COLMAP
 Camera Pose Estimation
   ↓
 Nerfacto / Splatfacto
-
+```
 ## Background Removal Preprocessing
-
-### BiRefNet
-
-**BiRefNet** was used to remove background regions while preserving the target object.
-
-Background removal may allow the reconstruction model to focus on relevant object features and reduce background-related artifacts.
-
-The background-removed images were reconstructed using the **same COLMAP camera poses** as the baseline reconstruction. This allows the effect of preprocessing to be evaluated while keeping camera pose estimation consistent.
-
-**Preprocessing pipeline:**
-
-**Images**  
-↓  
-**BiRefNet**  
-↓  
-**Background-Removed Images**  
-↓  
-**Nerfacto / Splatfacto**
-
-The baseline and preprocessed pipelines therefore differ only in the image preprocessing step:
-
-- **Baseline:** Original Images + Same COLMAP Poses → Nerfacto / Splatfacto
-- **Preprocessed:** Background-Removed Images + Same COLMAP Poses → Nerfacto / Splatfacto
