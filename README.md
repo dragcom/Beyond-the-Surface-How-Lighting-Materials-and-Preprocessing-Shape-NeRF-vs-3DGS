@@ -57,7 +57,7 @@ To investigate whether background removal can improve reconstruction quality und
 
 Preprocessing Pipeline
 We used rembg with the birefnet-general model to segment and remove the background from each extracted frame. The preprocessing workflow is as follows:
-
+```text
 Extracted Frames
        ↓
 Background Removal (rembg)
@@ -65,7 +65,7 @@ Background Removal (rembg)
 Background-Removed Frames
        ↓
 COLMAP + Nerfacto / Splatfacto
-
+```
 Implementation Details
 Tool: rembg with the birefnet-general pretrained model
 Input: Extracted video frames (.png, .jpg, .jpeg, .webp, .bmp)
