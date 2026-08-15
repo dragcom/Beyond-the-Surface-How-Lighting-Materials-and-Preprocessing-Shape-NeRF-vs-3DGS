@@ -35,7 +35,7 @@ A 2 × 3 factorial design was used:
 
 Videos were captured using an iPhone with the Blackmagic Camera application. Camera settings, including exposure, focus, and white balance, were fixed across recordings.
 
-A 360° orbital ("donut") trajectory was used to capture each object under the six experimental conditions.
+A 360° orbital trajectory was used to capture each object under the six experimental conditions.
 
 ### Reconstruction Pipeline
 
