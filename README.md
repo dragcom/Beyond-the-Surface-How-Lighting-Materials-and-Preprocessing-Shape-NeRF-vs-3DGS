@@ -51,3 +51,30 @@ COLMAP
 Camera Pose Estimation
   ↓
 Nerfacto / Splatfacto
+
+### Background Removal
+
+BiRefNet was used to remove background regions while preserving the target object. The background-removed images were reconstructed using the same COLMAP camera poses to isolate the effect of preprocessing.
+Images
+  ↓
+COLMAP
+  ↓
+BiRefNet
+  ↓
+Background Removal
+  ↓
+Nerfacto / Splatfacto
+
+## Evaluation
+
+Reconstruction quality was evaluated using:
+PSNR – pixel-level image fidelity
+SSIM – structural similarity
+LPIPS – perceptual similarity
+Higher PSNR and SSIM indicate better reconstruction quality, while lower LPIPS indicates greater perceptual similarity.
+
+## Results
+Results will compare:
+Reconstruction quality across material and lighting conditions
+Nerfacto vs. Splatfacto
+Reconstruction before and after BiRefNet background removal
