@@ -53,8 +53,36 @@ Camera Pose Estimation
 Nerfacto / Splatfacto
 ```
 ## Background Removal Preprocessing
+To investigate whether background removal can improve reconstruction quality under challenging conditions (e.g., low lighting or transparent materials), we applied a preprocessing step to remove the background from all input images before feeding them into the reconstruction pipeline.
 
+Preprocessing Pipeline
+We used rembg with the birefnet-general model to segment and remove the background from each extracted frame. The preprocessing workflow is as follows:
 
+Extracted Frames
+       ↓
+Background Removal (rembg)
+       ↓
+Background-Removed Frames
+       ↓
+COLMAP + Nerfacto / Splatfacto
+
+Implementation Details
+Tool: rembg with the birefnet-general pretrained model
+Input: Extracted video frames (.png, .jpg, .jpeg, .webp, .bmp)
+Output: Same filename with background removed, saved to a separate output directory
+Error Handling: Each image is processed individually with exception catching to prevent pipeline interruption
+Example usage
+python removebg_birefnet-general.py -i input_frames -o output_frames -m birefnet-general
+
+Rationale
+Background clutter can introduce noise during COLMAP feature matching and camera pose estimation, especially under low-light conditions where feature points are already sparse. By removing the background, we aim to:
+
+Reduce irrelevant feature points
+
+Improve feature matching accuracy on the object itself
+
+Enhance reconstruction quality for transparent objects where background bleed-through is prominent.
+The results of this comparison will be presented in the following section.
 ## Results
 
 ## Citation
