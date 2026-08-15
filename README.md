@@ -55,7 +55,9 @@ Nerfacto / Splatfacto
 ## Background Removal Preprocessing
 
 
-### Citation
+## Results
+
+## Citation
 
 ```text
 @inproceedings{nerfstudio,
@@ -70,10 +72,17 @@ Nerfacto / Splatfacto
 	booktitle    = {ACM SIGGRAPH 2023 Conference Proceedings},
 	series       = {SIGGRAPH '23}
 }
+
+@software{gatis_rembg,
+  author = {Daniel Gatis},
+  title = {rembg: Rembg is a tool to remove image backgrounds},
+  url = {https://github.com/danielgatis/rembg},
+  license = {MIT}
+}
 ```
 
 ## Contributors
 
 <a href="https://github.com/OWNER/REPO/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dragcom/Beyond-the-Surface-How-Lighting-Materials-and-Preprocessing-Shape-NeRF-vs-3DGS" />
+  <img src="https://contrib.rocks/image?repo=dragcom/Beyond-the-Surface-How-Lighting-Materials-and-Preprocessing-Shape-NeRF-vs-3DGS"/>
 </a>
