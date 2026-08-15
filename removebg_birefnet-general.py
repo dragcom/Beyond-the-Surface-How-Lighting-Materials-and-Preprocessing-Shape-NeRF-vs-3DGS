@@ -1,37 +1,40 @@
+import os
+import argparse
 from rembg import remove, new_session
 from PIL import Image
-import os
 
-input_dir = "images_RH2"
-output_dir = "images_bg_RH2"
+def main():
+    parser = argparse.ArgumentParser(description="Remove background from images using rembg.")
+    parser.add_argument("-i", "--input", default="input", help="Input folder path")
+    parser.add_argument("-o", "--output", default="output", help="Output folder path")
+    parser.add_argument("-m", "--model", default="birefnet-general", help="Model name for rembg")
+    args = parser.parse_args()
 
-os.makedirs(output_dir, exist_ok=True)
+    input_dir = args.input
+    output_dir = args.output
+    model_name = args.model
 
-session = new_session("birefnet-general")
+    os.makedirs(output_dir, exist_ok=True)
 
-for filename in os.listdir(input_dir):
+    session = new_session(model_name)
 
-    if filename.endswith(".png"):
+    valid_extensions = (".png", ".jpg", ".jpeg", ".webp", ".bmp")
 
-        input_path = os.path.join(
-            input_dir,
-            filename
-        )
+    for filename in os.listdir(input_dir):
+        if filename.lower().endswith(valid_extensions):
+            input_path = os.path.join(input_dir, filename)
+            output_path = os.path.join(output_dir, filename)
 
-        output_path = os.path.join(
-            output_dir,
-            filename.replace(".png", ".png")
-        )
+            print(f"Processing: {filename}")
 
-        print("processing:", filename)
+            try:
+                img = Image.open(input_path)
+                result = remove(img, session=session)
+                result.save(output_path)
+            except Exception as e:
+                print(f"Error processing {filename}: {e}")
 
-        img = Image.open(input_path)
+    print("All finished!")
 
-        result = remove(
-            img,
-            session=session
-        )
-
-        result.save(output_path)
-
-print("All finished!")
+if __name__ == "__main__":
+    main()
