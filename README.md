@@ -51,16 +51,3 @@ COLMAP
 Camera Pose Estimation
   ↓
 Nerfacto / Splatfacto
-
-### Background Removal
-
-BiRefNet was used to remove background regions while preserving the target object. The background-removed images were reconstructed using the same COLMAP camera poses to isolate the effect of preprocessing.
-Images
-  ↓
-COLMAP
-  ↓
-BiRefNet
-  ↓
-Background Removal
-  ↓
-Nerfacto / Splatfacto
