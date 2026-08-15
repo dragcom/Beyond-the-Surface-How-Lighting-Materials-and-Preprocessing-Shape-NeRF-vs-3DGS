@@ -52,7 +52,6 @@ Camera Pose Estimation
   ↓
 Nerfacto / Splatfacto
 
-
 Background Removal Preprocessing
 BiRefNet
 BiRefNet was used to remove background regions while preserving the target object.
