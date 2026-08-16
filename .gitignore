@@ -1,0 +1,7 @@
+
+nerfstudio/
+outputs/
+data/
+*.ply
+*.ckpt
+*.pth
